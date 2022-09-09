@@ -39,3 +39,8 @@
 yarn-debug.log*
 .yarn-integrity
 bssperant_1.zip
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
