@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update ]
 
   # GET /posts or /posts.json
   def index
@@ -49,10 +49,10 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
+    Delayed::Job.enqueue DeletePostJob.new(ENV.fetch("SCHEMA", 'public'), params[:id])
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url, notice: "sended to job." }
       format.json { head :no_content }
     end
   end
