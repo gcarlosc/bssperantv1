@@ -1,35 +1,42 @@
 FROM ruby:2.7.6-alpine
 
-RUN apk add --update --virtual \
-  runtime_deps \
-  postgresql-client \
+RUN apk add --update --no-cache \
+  binutils-gold \
   build-base \
-  libxml2-dev \
-  libxslt-dev \
-  nodejs \
-  yarn \
+  curl \
+  file \
+  g++ \
+  gcc \
+  git \
+  less \
+  libstdc++ \
   libffi-dev \
-  readline \
-  postgresql-dev \
   libc-dev \
   linux-headers \
-  readline-dev \
-  file \
-  imagemagick \
-  git \
+  libxml2-dev \
+  libxslt-dev \
+  libgcrypt-dev \
+  make \
+  netcat-openbsd \
+  nodejs \
+  openssl \
+  pkgconfig \
+  postgresql-dev \
   tzdata \
-  && rm -rf /var/cache/apk/*
+  yarn \
+&& rm -rf /var/cache/apk/*
+
 
 WORKDIR /app
-COPY . /app/
 
-ENV BUNDLE_PATH /gems
+RUN gem install bundler -v 2.3.20
+COPY Gemfile Gemfile.lock ./
+RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle check || bundle install
 
-RUN gem install bundler:2.3.20
-RUN yarn install
-RUN bundle install
+COPY package.json yarn.lock ./
+RUN yarn install --check-files
 
-ENTRYPOINT ["bin/rails"]
-CMD ["s", "-b", "0.0.0.0"]
+COPY . ./
 
-EXPOSE 3000
+ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
