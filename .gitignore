@@ -42,6 +42,11 @@ yarn-debug.log*
 db/schema.rb
 docker_test
 
+entrypoints
+Dockerfile
+docker-compose.yml
+init.sql
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
