@@ -1,7 +1,7 @@
 class DeletePostJob < Struct.new(:schema, :post_id)
   def perform
     puts "========= DELETE POST #{schema} post_id: #{post_id}========="
-    sleep 5
+    sleep 10
     post = Post.find_by(id: post_id)
     post.destroy if post
   end
