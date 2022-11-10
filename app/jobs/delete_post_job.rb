@@ -7,7 +7,6 @@ class DeletePostJob < Struct.new(:schema, :post_id)
 
   def before(job)
     ActiveRecord::Base.connection.schema_search_path = schema
-    sleep 5
   end
 
   def after(job)
