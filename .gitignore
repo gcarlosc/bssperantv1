@@ -39,6 +39,7 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+db/schema.rb
 docker_test
 
 entrypoints
