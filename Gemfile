@@ -62,3 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'daemons'
+gem 'sidekiq', '~> 6.1', '>= 6.1.2'

@@ -22,7 +22,6 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to posts_url, notice: "Post was successfully created." }
@@ -52,9 +51,14 @@ class PostsController < ApplicationController
     Delayed::Job.enqueue DeletePostJob.new(ENV.fetch("SCHEMA", 'public'), params[:id])
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "sended to job." }
+      format.html { redirect_to posts_url, notice: "sended to delayed job." }
       format.json { head :no_content }
     end
+  end
+
+  def auto_create
+    CreatePostJob.perform_async
+    redirect_to posts_url, notice: "sended to redis."
   end
 
   private
