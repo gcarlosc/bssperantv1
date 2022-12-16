@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<%= turbo_frame_tag "room-#{dom_id(@room)}" do %>
+  <p>
+    <strong>Name:</strong>
+    <%= @room.name %>
+  </p>
+
+  <p>
+    <%= link_to 'Edit', edit_room_path(@room) %> |
+    <%= link_to 'Back', rooms_path %>
+  </p>
+<% end %>
+
+<%= turbo_stream_from "room1" %>
+<%= turbo_frame_tag "room1" do %>
+  <div id="messages">
+    <%= render @room.messages %>
+  </div>
+<% end %>
+
+<%= link_to 'new message', new_room_message_path(@room) %>
