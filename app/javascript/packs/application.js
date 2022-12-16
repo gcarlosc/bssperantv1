@@ -4,8 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import "./controllers"
-import "@hotwired/turbo-rails"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
