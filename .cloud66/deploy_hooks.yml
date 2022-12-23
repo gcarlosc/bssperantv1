@@ -1,6 +1,6 @@
 production:
   last_thing:
     - command: rake exec tenants:db:migrate
-    target: rails
-    run_on: single_server
-    execute: true
+      target: rails
+      run_on: single_server
+      execute: true
