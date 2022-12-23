@@ -3,4 +3,4 @@ development:
 production:
   :concurrency: 1
 :queues:
-  - default
+  - cloud66
