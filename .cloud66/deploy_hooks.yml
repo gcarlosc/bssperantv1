@@ -1,6 +1,8 @@
 production:
-  last_thing:
-    - command: rake exec tenants:db:migrate
+  after_rails:
+    - source: /.cloud66/scripts/rake_tenants.sh
       target: rails
-      run_on: single_server
       execute: true
+      run_on: single_server
+      apply_during: all
+      sudo: true
