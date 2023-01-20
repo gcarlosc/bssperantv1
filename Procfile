@@ -1,3 +1,3 @@
 web: bundle exec puma -C /opt/elasticbeanstalk/config/private/pumaconf.rb
-worker: bundle exec rake jobs:work
-sidekiq: bundle exec sidekiq -e production -C config/sidekiq.yml
+worker: bash bin/start_jobs.sh
+sidekiq: bash bin/start_sidekiq.sh
