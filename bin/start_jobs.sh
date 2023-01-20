@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$WORKER_ENV" = "true" ] ; then
+if [ "true" ] ; then
   echo "worker env"
   bundle exec rake jobs:work
 else
