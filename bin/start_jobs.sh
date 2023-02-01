@@ -5,5 +5,8 @@ if [ "$WORKER_ENV" = "true" ] ; then
   bundle exec rake jobs:work
 else
   echo "web env"
-  exit 0
+  while true
+  do
+      sleep 1
+  done
 fi
