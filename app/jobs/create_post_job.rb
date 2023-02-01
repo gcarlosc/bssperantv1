@@ -4,7 +4,7 @@ class CreatePostJob
 
   def perform
     ActiveRecord::Base.connection.schema_search_path = 'r148581227346de8c711aced4008225, hstore'
-    post = Post.create(name: Time.current.to_i)
+    post = Post.create(name: "id-#{Time.current.to_i}")
     puts "======== created post ========"
     puts post
     puts "=============================="
