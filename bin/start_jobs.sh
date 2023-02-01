@@ -7,6 +7,6 @@ else
   echo "web env"
   while true
   do
-      sleep 1
+    sleep 1
   done
 fi
