@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'daemons'
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
-# gem 'aws-sdk-rails'
+# gem 'aws-sdk-rails', '~> 3'
 gem 'aws-sdk', '~> 3'
 
 # gem 'hotwire-rails'
