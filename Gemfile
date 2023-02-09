@@ -65,5 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 # gem 'aws-sdk-rails', '~> 3'
 gem 'aws-sdk', '~> 3'
+# gem 'cloudwatchlogger', '~> 0.1.1'
 
 # gem 'hotwire-rails'
