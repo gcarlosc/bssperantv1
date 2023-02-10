@@ -1,3 +1,7 @@
-every 2.minutes do
-  rake "scheduler:auto_post_generate"
+every 1.minutes do
+  rake "scheduler:post_1min"
+end
+
+every 5.minutes do
+  rake "scheduler:post_5min"
 end
