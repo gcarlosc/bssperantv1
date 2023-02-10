@@ -67,4 +67,4 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'aws-sdk', '~> 3'
 # gem 'cloudwatchlogger', '~> 0.1.1'
 
-# gem 'hotwire-rails'
+gem 'whenever'
